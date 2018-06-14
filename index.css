@@ -1,0 +1,210 @@
+/*
+READ ME: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+THEN DO THIS (trust me):
+https://cvan.io/flexboxin5/
+
+Flexbox is a way to lay things out. Its fancy because its built in. "Grid" came out last year and is the "new flexbox" but really they both do good stuff.  I would normally build myself a framwork or use something like bootstrap but thatssss not how we learn! 
+*/
+
+* {
+  
+}
+
+/*Because I chose lists, they came with styling. This is needed to get rid of the base style like bullet points and the left padding used to hold them*/
+ul {
+  list-style: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+/*centering the header to make it roughly resemble your design*/
+h1 {
+  text-align: center;
+}
+
+/*Container is a word youll see all the time in programming. You can always break down elements on a page into more and more children all the way to the bottom, they live in a container. Sometimes this is treated like a resered special word and sometimes people just mean the biggest box you are working on the inside of. Here, its special. Its what you flex within, so to speak. A containers job is to take the space its allotted and the rules you give it to arrange its children inside it the best possible way. */
+.flex-container-box-wrap {
+  /*most important line, tells your container to get ready to be a helicopter parent instead of its normal hands off behavior.*/
+  display: flex;
+
+  /*lets make our box be 70% of whatever the usable screen is*/
+  width: 70%;
+
+  /*this is magic. lets just say it centers it in the page, but margin auto is worth a google, its witchcraft*/
+  margin: auto;
+
+  /*because a container will do its best with what you give it to make everything fit, before you tell it its ko to wrap, the width of the items will be overwritten and they are all jammed into one line.  If you dont believe me, comment it out and see!*/
+  flex-wrap: wrap;
+
+  /*We will have 3 per line with gaps and its going to want to start to the far left. This makes it center the children in the row.*/
+  justify-content: center;
+
+  /*Lets make our container box visible so we can see where its hanging out. Border is another magic shorthand property.*/
+  border: 1px black solid;
+}
+
+/*Im making my standard child 100 x 100 because im mini recreating your page for you, children can be ANYTHINGGGGG its the containers job to wrangle them.  You should know what you want them to do though, theres a lot of options.*/
+.flex-child-std {
+  /*we could totally use width and height constant values here, but try not to ever use constant values (ie 100px vs 10%).  Everything should be responsive always!!! :) With that in mind, I'm going to set them to 25% of the viewport (usable screen space) so that three on one line still allows for gaps between and they will size down as the page does*/
+  width: 15%; 
+
+  /*So we want height to roughly = width, but thats not a thing in css. So we fake it! Use padding (remember padding is the space inside the box, margin is the space between that box and other boxes. we used padding because we wanted our actual boxes bigger.) BTW, this is another shorthand enabled property!*/
+  padding: 5%;
+
+  /*K cool, but we wanted the color text in the center of the boxes right? well, children can be flex containters too... No seriously. Infinite flex containers! */ 
+  display: flex;
+  justify-content: center;
+
+  /*But now we want 3 in a row with spaces between them. This is another think you can solve many ways. come people make row classes. We can solve this easily by adding a margin because the way we sized the items that will bump the 4th in each line down. You can play around with this, but pretty much any values will make it bump one.*/
+  margin: 2% 3% 2% 3%;
+
+  /*a row will be as high as its higest element, meaning the long values wrap around and make the sizes uneven. This makes the text unable to wrap.*/
+  white-space: nowrap;
+
+  /*ok but the font is overflowing... First we set a back up, because vw is ALMOST completely supported, and then use a cool newish thing called viewport vidth. try resizing the page, the font will size with it*/
+  font-size: 16px;
+  /* 1vw = 1/100th of viewport width. Scales text to fit container size. This is another shorthand!
+  */
+  font: normal bold 2vw/10px Georgia, serif;
+}
+
+/*So because you picked 12 unique colors, we are indeed stuck with 12 classes here. Everything else should be able to be standardized. Remember, if you are repeating code, something is likely wrong. Blocks can be one line IF its short and only one element inside. You can write a function for this, but I thought radialGradient was easier to understand. Sooo I made custom gradients. With the actual color wheel values.*/
+
+/*every child when hovered over will have a .2 second transition with a white background. Because the colors were all different, they all needed custom hover blocks too, but always pull out whatever you can.*/
+.flex-child-std:hover {
+  transition: .2s ease-in-out;
+  background: #fff;
+}
+
+.flex-child-red { 
+  background: radial-gradient(80% 40%, #FE2712, #be1616);
+}
+
+.flex-child-red:hover {
+  color: #FE2712;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #FE2712;
+  -moz-box-shadow:inset 0px 0px 0px 3px #FE2712;
+  box-shadow:inset 0px 0px 0px 3px #FE2712;
+}
+
+.flex-child-orange-red { 
+  background: radial-gradient(80% 40%,  #FC600A, #db540b);
+}
+
+.flex-child-orange-red:hover { 
+  color: #FC600A;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #FC600A;
+  -moz-box-shadow:inset 0px 0px 0px 3px #FC600A;
+  box-shadow:inset 0px 0px 0px 3px #FC600A;
+}
+
+.flex-child-orange { 
+  background: radial-gradient(80% 40%,  #FB9902, #d17e01);
+}
+
+.flex-child-orange:hover { 
+  color: #FB9902;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #FB9902;
+  -moz-box-shadow:inset 0px 0px 0px 3px #FB9902;
+  box-shadow:inset 0px 0px 0px 3px #FB9902;
+}
+
+.flex-child-yellow-orange { 
+  background: radial-gradient(80% 40%, #FCCC1A, #dbb117);
+}
+
+.flex-child-yellow-orange:hover { 
+  color: #FCCC1A;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #FCCC1A;
+  -moz-box-shadow:inset 0px 0px 0px 3px #FCCC1A;
+  box-shadow:inset 0px 0px 0px 3px #FCCC1A;
+}
+
+.flex-child-yellow { 
+  background: radial-gradient(80% 40%, #FEFE33, #d6d62f); 
+}
+
+.flex-child-yellow:hover { 
+  color: #FEFE33;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #FEFE33;
+  -moz-box-shadow:inset 0px 0px 0px 3px #FEFE33;
+  box-shadow:inset 0px 0px 0px 3px #FEFE33;
+}
+
+.flex-child-green-yellow { 
+  background: radial-gradient(80% 40%, #B2D732, #96b429); 
+}
+
+.flex-child-green-yellow:hover { 
+  color: #B2D732;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #B2D732;
+  -moz-box-shadow:inset 0px 0px 0px 3px #B2D732;
+  box-shadow:inset 0px 0px 0px 3px #B2D732;
+}
+
+.flex-child-green { 
+  background: radial-gradient(80% 40%, #66B032, #4b911a); 
+}
+
+.flex-child-green:hover { 
+  color: #66B032;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #66B032;
+  -moz-box-shadow:inset 0px 0px 0px 3px #66B032;
+  box-shadow:inset 0px 0px 0px 3px #66B032;
+}
+
+.flex-child-blue-green { 
+  background: radial-gradient(80% 40%, #347C98, #265a70); 
+}
+
+.flex-child-blue-green:hover { 
+  color: #347C98;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #347C98;
+  -moz-box-shadow:inset 0px 0px 0px 3px #347C98;
+  box-shadow:inset 0px 0px 0px 3px #347C98;
+}
+
+.flex-child-blue { 
+  background: radial-gradient(80% 40%, #0247FE, #002896); 
+} 
+
+.flex-child-blue:hover { 
+  color: #0247FE;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #0247FE;
+  -moz-box-shadow:inset 0px 0px 0px 3px #0247FE;
+  box-shadow:inset 0px 0px 0px 3px #0247FE;
+}
+
+.flex-child-violet-blue { 
+  background: radial-gradient(80% 40%, #4424D6, #3a20ad); 
+}
+
+.flex-child-violet-blue:hover { 
+  color: #4424D6;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #4424D6;
+  -moz-box-shadow:inset 0px 0px 0px 3px #4424D6;
+  box-shadow:inset 0px 0px 0px 3px #4424D6;
+}
+
+.flex-child-violet { 
+  background: radial-gradient(80% 40%, #8601AF, #660285); 
+}
+
+.flex-child-violet:hover { 
+  color: #8601AF;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #8601AF;
+  -moz-box-shadow:inset 0px 0px 0px 3px #8601AF;
+  box-shadow:inset 0px 0px 0px 3px #8601AF;
+}
+
+.flex-child-red-violet { 
+  background: radial-gradient(80% 40%, #C21460, #861043); 
+}
+
+.flex-child-red-violet:hover { 
+  color: #C21460;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #C21460;
+  -moz-box-shadow:inset 0px 0px 0px 3px #C21460;
+  box-shadow:inset 0px 0px 0px 3px #C21460;
+}

@@ -1,0 +1,60 @@
+<!--always put this. declare your doctype. google to read more if you care, youll never have to know though, just remember to do it-->
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!--this one is reallllly fun. if you dont know, google utf-8 encryption or utf-8 vs 16. Its too much for a comment and its a total rabit hole but its really interesting-->
+    <meta charset="utf-8">
+
+    <!--another thing you should ALWAYS put. the viewport is what the user can see, you set width (which as you know you will use) to be the width of whatever device, and you scale to 1 to avoid being overwritten by something weird. You never know WHAT the new device or language or API etc will do so being explicit will save you the headache of super ambiguous errors later-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--the only required thing inside head. Why? No idea.-->
+    <title>Poster Matching</title>
+
+    <!--DONT use type="text/css" attribut in links for css or javascript, they are the default values and are superfluous-->
+    <link href="index.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <script src="index.js"></script>
+
+    <h1>I do poster stuff!</h1>
+
+    <!-- READ ME: Remember how I said dont use divs if you can avoid it? There are 2 types of elements, block and inline. Block will start on a new line and take up 100% of the width it can.  Inline shrinks around its content. Uncomment this code to see what I mean. Also NEVER put styling inline in your html (the style tag).  I only did that to show you the size of elements you shouldnt use*/ -->
+    <!--<span class="flex-child-std" style="background-color:red;">Span</span>
+    <div class="flex-child-std" style="background-color:red;">Div</div>-->
+
+      <!-- so what do we use? I picked unordered lists! or ul. li mean list item and each will represent a square. The list is the container, and therefore needs the class with display:flex. Each List item is a child, therefore have the child class. I wouldnt normally put spaces between list items, but I am here for readability. -->
+    
+    <ul class="flex-container-box-wrap">
+
+      <li class="flex-child-std flex-child-red">Red</li>
+      
+      <li class="flex-child-std flex-child-orange-red">Orange Red</li>
+      
+      <li class="flex-child-std flex-child-orange">Orange</li>
+      
+      <li class="flex-child-std flex-child-yellow-orange">Yellow Orange</li>
+      
+      <li class="flex-child-std flex-child-yellow">Yellow</li>
+      
+      <li class="flex-child-std flex-child-green-yellow">Green Yellow</li>
+      
+      <li class="flex-child-std flex-child-green">Green</li>
+      
+      <li class="flex-child-std flex-child-blue-green">Blue Green</li>
+      
+      <li class="flex-child-std flex-child-blue">Blue</li>
+      
+      <li class="flex-child-std flex-child-violet-blue">Violet Blue</li>
+      
+      <li class="flex-child-std flex-child-violet">Violet</li>
+      
+      <li class="flex-child-std flex-child-red-violet">Red Violet</li>
+
+    </ul>
+
+  </body>
+
+</html>
